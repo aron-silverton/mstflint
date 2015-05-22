@@ -12,7 +12,7 @@
 Summary: Mellanox firmware burning application
 Name: %{name}
 Version: 4.0.0
-Release: 1.35.0.1.gac9a120%{?dist}
+Release: 1.35.0.1.gac9a120
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
