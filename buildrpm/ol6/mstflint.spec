@@ -90,10 +90,10 @@ rm -rf $RPM_BUILD_ROOT
 * Sun Dec 07 2014 Tomer Cohen <tomerc@mellanox.com>
    Added support for multiple architectures
 
-* Mon Oct 12 2014 Oren Kladnitsky <orenk@dev.mellanox.co.il>
+* Sun Oct 12 2014 Oren Kladnitsky <orenk@dev.mellanox.co.il>
    MFT 3.7.1
 
-* Mon Jul 31 2014 Oren Kladnitsky <orenk@dev.mellanox.co.il>
+* Thu Jul 31 2014 Oren Kladnitsky <orenk@dev.mellanox.co.il>
    MFT 3.7.0 Updates
 
 * Mon Mar 31 2014 Oren Kladnitsky <orenk@dev.mellanox.co.il>
@@ -108,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Dec  4 2008 Oren Kladnitsky <orenk@dev.mellanox.co.il>
    Added hca_self_test.ofed installation
    
-* Fri Dec 23 2007 Oren Kladnitsky <orenk@dev.mellanox.co.il>
+* Sun Dec 23 2007 Oren Kladnitsky <orenk@dev.mellanox.co.il>
    Added mtcr.h installation
    
 * Fri Dec 07 2007 Ira Weiny <weiny2@llnl.gov> 1.0.0
