@@ -48,7 +48,7 @@
 
 
 /* define macros to the architecture of the CPU */
-#if defined(__linux) || defined(__FreeBSD__)             /* __linux || __FreeBSD__ */
+#if defined(__linux__) || defined(__FreeBSD__)             /* __linux__ || __FreeBSD__ */
 #   if defined(__i386__)
 #       define ARCH_x86
 #   elif defined(__x86_64__)
@@ -61,6 +61,8 @@
 #       define ARCH_ppc
 #   elif defined(__aarch64__)
 #       define ARCH_arm64
+#   elif defined(__sparc__) && defined(__LP64__)
+#	define ARCH_sparc64
 #   else
 #       error Unknown CPU architecture using the linux OS
 #   endif
@@ -107,7 +109,7 @@
 #       define U48H_FMT     "0x%012llx"
 #       define U64D_FMT_GEN "llu"
 #   endif
-#elif defined (ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64)
+#elif defined (ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_sparc64)
 #    define U64D_FMT     "%lu"
 #    define U64H_FMT     "0x%016lx"
 #    define U48H_FMT     "0x%012lx"
@@ -156,7 +158,7 @@
 /*
  * Linux
  */
-#if defined(linux) || defined(__FreeBSD__)
+#if defined(__linux__) || defined(__FreeBSD__)
 // #include <asm/byteorder.h>
     #include <unistd.h>
     #include <sys/types.h>
@@ -368,7 +370,7 @@ typedef struct stat  Stat;
  * Solaris
  * -------
  */
-#if defined(__sparc__)
+#if defined(__sparc__) && !defined(__linux__)
     #include <sys/byteorder.h>
     #include <sys/types.h>
     #include <unistd.h>

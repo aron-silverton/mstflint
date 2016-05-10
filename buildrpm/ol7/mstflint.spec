@@ -12,13 +12,13 @@
 Summary: Mellanox firmware burning application
 Name: %{name}
 Version: 4.0.0
-Release: 1.35.gac9a120.0.1%{?dist}
+Release: 1.35.gac9a120.0.2%{?dist}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: http://www.openfabrics.org/downloads/mstflint/mstflint-4.0.0-1.35.gac9a120.tar.gz
-ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
+ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64 sparc64
 BuildRequires: zlib-devel %{ibmadlib}
 
 %description

@@ -137,6 +137,8 @@ extern "C" {
 #       define ARCH_ppc
 #   elif defined(__aarch64__)
 #       define ARCH_arm64
+#   elif defined(__sparc__) && defined(__LP64__)
+#	define ARCH_sparc64
 #   else
 #       error Unknown CPU architecture using the linux OS
 #   endif
@@ -180,7 +182,7 @@ extern "C" {
 #       define U64H_FMT    "0x%016llx"
 #       define U48H_FMT    "0x%012llx"
 #   endif
-#elif defined (ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64)
+#elif defined (ARCH_ia64) || defined(ARCH_x86_64) || defined(ARCH_ppc64) || defined(ARCH_arm64) || defined(ARCH_sparc64)
 #    define U64D_FMT    "%lu"
 #    define U64H_FMT    "0x%016lx"
 #	 define U48H_FMT	"0x%012lx" 
