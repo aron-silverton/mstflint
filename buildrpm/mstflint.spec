@@ -1,7 +1,7 @@
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
-%{!?version: %define version 4.7.0}
-%{!?release: %define release 1}
+%{!?version: %define version 4.8.0}
+%{!?release: %define release 2.0.1}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -19,7 +19,7 @@
 Summary: Mellanox firmware burning application
 Name: %{name}
 Version: %{version}
-Release: %{release} 
+Release: %{release}%{?dist}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
