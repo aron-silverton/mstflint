@@ -1,7 +1,7 @@
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
-%{!?version: %define version 4.7.0}
-%{!?release: %define release 1}
+%{!?version: %define version 4.8.0}
+%{!?release: %define release 2.0.1}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -132,6 +132,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Mon Feb 05 2018 Aron Silverton <aron.silverton@oracle.com>
+  - [Orabug: 27300558] Add support for secure boot systems
+
 * Mon Jul 17 2017 Adham Masarwah <adham@dev.mellanox.co.il>
    Adding mlxfwreset to mstflint
    
