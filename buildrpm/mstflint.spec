@@ -1,3 +1,7 @@
+%define uek2epoch 2
+%define uek4epoch 4
+%define uek5epoch 5
+
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.8.0}
@@ -18,6 +22,7 @@
 
 Summary: Mellanox firmware burning application
 Name: %{name}
+Epoch: %{uek4epoch}
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL/BSD
@@ -26,7 +31,10 @@ Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
-BuildRequires: zlib-devel %{ibmadlib}
+
+BuildRequires: zlib-devel
+BuildRequires: libibmad-devel >= %{uek4epoch}:1.3.12-1.0.1
+BuildRequires: libibmad-devel < %{uek5epoch}:0
 
 %description
 This package contains firmware update tool, vpd dump and register dump tools
@@ -132,6 +140,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Mon Mar 26 2018 Aron Silverton <aron.silverton@oracle.com> - 4:4.8.0
+- Add Epoch to package versioning (Aron Silverton) [Orabug: 27593051]
+
 * Mon Feb 05 2018 Aron Silverton <aron.silverton@oracle.com>
   - [Orabug: 27300558] Add support for secure boot systems
 
@@ -191,4 +202,3 @@ rm -rf $RPM_BUILD_ROOT
    
 * Fri Dec 07 2007 Ira Weiny <weiny2@llnl.gov> 1.0.0
    initial creation
-
