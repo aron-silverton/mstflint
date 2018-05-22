@@ -1,4 +1,3 @@
-%{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.8.0}
 %{!?release: %define release 2.0.2}
@@ -10,6 +9,10 @@
 %{!?enablefwmgr: %define enablefwmgr 0}
 %{!?CONF_DIR: %define CONF_DIR /etc/mstflint}
 
+%define uek2epoch 2
+%define uek4epoch 4
+%define uek5epoch 5
+
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
 
 %define _unpackaged_files_terminate_build 0
@@ -18,6 +21,7 @@
 
 Summary: Mellanox firmware burning application
 Name: %{name}
+Epoch: %{uek5epoch}
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL/BSD
@@ -26,7 +30,9 @@ Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
-BuildRequires: zlib-devel %{ibmadlib}
+
+BuildRequires: libibmad-devel >= %{uek5epoch}:2.0.0-1.0.1
+BuildRequires: zlib-devel
 
 %description
 This package contains firmware update tool, vpd dump and register dump tools
@@ -132,6 +138,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Tue May 22 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.8.0
+- Add Epoch to package versioning (Aron Silverton) [Orabug: 27774601]
+
 * Mon Feb 05 2018 Aron Silverton <aron.silverton@oracle.com> - 4.8.0-2.0.2
 - Update to 4.8.0 (Aron Silverton) [Orabug: 27300558]
 
