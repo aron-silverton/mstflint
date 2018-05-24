@@ -1,7 +1,7 @@
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.9.0}
-%{!?release: %define release 2}
+%{!?release: %define release 3.0.1}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -26,6 +26,7 @@ Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
+BuildRequires: autoconf, automake, libtool
 BuildRequires: zlib-devel %{ibmadlib}
 
 %description
@@ -36,6 +37,7 @@ for network adapters based on Mellanox Technologies chips.
 %setup -q
 
 %build
+./autogen.sh
 
 %if %{nodc}
     config_flags="$config_flags --disable-dc"
@@ -133,6 +135,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Thu May 24 2018 Aron Silverton <aron.silverton@oracle.com> - 4.9.0
+- Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 27959056]
+
 * Sun Apr 1 2018 Adham Masarwah <adham@dev.mellanox.co.il>
    Adding support for newer device in Secure Boot kernel and mtcr
    
