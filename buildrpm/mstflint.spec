@@ -1,6 +1,6 @@
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.9.0}
-%{!?release: %define release 3.0.1}
+%{!?release: %define release 3.0.2}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -142,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Thu May 24 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.9.0
+* Thu May 24 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.9.0-3.0.2
 - Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 27959056]
 - Add Epoch to package versioning (Aron Silverton) [Orabug: 27774601]
 
