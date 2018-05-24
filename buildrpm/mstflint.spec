@@ -1,4 +1,3 @@
-%{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
 %{!?release: %define release 1.0.1}
@@ -10,6 +9,10 @@
 %{!?enablefwmgr: %define enablefwmgr 0}
 %{!?CONF_DIR: %define CONF_DIR /etc/mstflint}
 
+%define uek2epoch 2
+%define uek4epoch 4
+%define uek5epoch 5
+
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
 
 %define _unpackaged_files_terminate_build 0
@@ -18,6 +21,7 @@
 
 Summary: Mellanox firmware burning application
 Name: %{name}
+Epoch: %{uek5epoch}
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL/BSD
@@ -29,9 +33,8 @@ ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
 
 BuildRequires: autoconf
 BuildRequires: automake
-BuildRequires: libibmad-devel
+BuildRequires: libibmad-devel >= %{uek5epoch}:2.0.0-1.0.1
 BuildRequires: libtool
-BuildRequires: git
 BuildRequires: zlib-devel
 
 %description
@@ -140,8 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 4.10.0
+* Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
 - Reconfigure for Oracle's build system (Aron Silverton) [Orabug: TBD]
+- Add Epoch to package versioning (Aron Silverton) [Orabug: 27774601]
 
 * Sun Jul 01 2018 Dan Goldberg <dang@dev.mellanox.co.il>
    MFT 4.10.0 Updates
