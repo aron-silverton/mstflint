@@ -2,6 +2,9 @@
 %define uek4epoch 4
 %define uek5epoch 5
 
+%define RELEASE 2.0.2
+%{?el7:%define uektag uek4}
+
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.8.0}
@@ -24,7 +27,7 @@ Summary: Mellanox firmware burning application
 Name: %{name}
 Epoch: %{uek4epoch}
 Version: %{version}
-Release: %{release}%{?dist}
+Release: %{RELEASE}%{?dist}%{?uektag}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
@@ -140,6 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Wed May 16 2018 Aron Silverton <aron.silverton@oracle.com> - 4:4.8.0
+- Add "uek4" token for OL7 package builds (Aron Silverton) [Orabug: 27934606]
+
 * Mon Mar 26 2018 Aron Silverton <aron.silverton@oracle.com> - 4:4.8.0
 - Add Epoch to package versioning (Aron Silverton) [Orabug: 27593051]
 
