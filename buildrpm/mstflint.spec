@@ -33,6 +33,7 @@ ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
 
 BuildRequires: autoconf, automake, libtool
 BuildRequires: libibmad-devel >= %{uek5epoch}:2.0.0-1.0.1
+BuildRequires: libibverbs-devel >= %{uek5epoch}:0
 BuildRequires: zlib-devel
 
 %description
