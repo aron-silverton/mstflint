@@ -1,7 +1,7 @@
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
-%{!?release: %define release 1}
+%{!?release: %define release 1.0.1}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -19,23 +19,30 @@
 Summary: Mellanox firmware burning application
 Name: %{name}
 Version: %{version}
-Release: %{release} 
+Release: %{release}%{?dist}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
-BuildRequires: zlib-devel %{ibmadlib}
+
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libibmad-devel
+BuildRequires: libtool
+BuildRequires: git
+BuildRequires: zlib-devel
 
 %description
 This package contains firmware update tool, vpd dump and register dump tools
 for network adapters based on Mellanox Technologies chips.
 
 %prep
-%setup -q
+setup -q
 
 %build
+./autogen.sh
 
 %if %{nodc}
     config_flags="$config_flags --disable-dc"
@@ -133,6 +140,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 4.10.0
+- Reconfigure for Oracle's build system (Aron Silverton) [Orabug: TBD]
+
 * Sun Jul 01 2018 Dan Goldberg <dang@dev.mellanox.co.il>
    MFT 4.10.0 Updates
 
