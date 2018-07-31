@@ -1,6 +1,6 @@
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
-%{!?release: %define release 1.0.1}
+%{!?release: %define release 2.0.1}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -143,8 +143,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
-- Reconfigure for Oracle's build system (Aron Silverton) [Orabug: TBD]
+* Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.1
+- Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 28432809]
 - Add Epoch to package versioning (Aron Silverton) [Orabug: 27774601]
 
 * Sun Jul 01 2018 Dan Goldberg <dang@dev.mellanox.co.il>
