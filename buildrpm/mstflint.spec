@@ -13,17 +13,19 @@
 %define uek4epoch 4
 %define uek5epoch 5
 
+%global flavor vos
+
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
 
 %define _unpackaged_files_terminate_build 0
 %define debug_package %{nil}
 %define optflags -g -O2
 
-Summary: Mellanox firmware burning application
+Summary: Mellanox firmware burning application (Oracle VOS)
 Name: %{name}
 Epoch: %{uek5epoch}
 Version: %{version}
-Release: %{release}%{?dist}
+Release: %{release}%{?dist}%{?flavor}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
@@ -40,6 +42,10 @@ BuildRequires: zlib-devel
 %description
 This package contains firmware update tool, vpd dump and register dump tools
 for network adapters based on Mellanox Technologies chips.
+
+For use on Oracle Linux systems running the Oracle Database Virtual OS
+(VOS) layer.
+
 
 %prep
 %setup -q
@@ -143,6 +149,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Mon Aug 27 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
+- Add "vos" to RPM release number (Aron Silverton) [Orabug 28550856]
+
 * Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.1
 - Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 28432809]
 - Add Epoch to package versioning (Aron Silverton) [Orabug: 27774601]
