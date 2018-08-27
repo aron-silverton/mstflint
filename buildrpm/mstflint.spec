@@ -1,6 +1,6 @@
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
-%{!?release: %define release 2.0.1}
+%{!?release: %define release 2.0.2}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -149,7 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Mon Aug 27 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
+* Mon Aug 27 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.2
 - Add "vos" to RPM release number (Aron Silverton) [Orabug 28550856]
 
 * Mon Jul 23 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.1
