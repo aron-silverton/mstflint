@@ -13,7 +13,7 @@
 %define uek4epoch 4
 %define uek5epoch 5
 
-%global flavor vos
+%global flavor ora
 
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
 
@@ -21,7 +21,7 @@
 %define debug_package %{nil}
 %define optflags -g -O2
 
-Summary: Mellanox firmware burning application (Oracle VOS)
+Summary: Mellanox firmware burning application (Oracle Extensions)
 Name: %{name}
 Epoch: %{uek5epoch}
 Version: %{version}
@@ -43,8 +43,7 @@ BuildRequires: zlib-devel
 This package contains firmware update tool, vpd dump and register dump tools
 for network adapters based on Mellanox Technologies chips.
 
-For use on Oracle Linux systems running the Oracle Database Virtual OS
-(VOS) layer.
+For use on Oracle Linux systems running the Oracle Database Virtual OS layer.
 
 
 %prep
@@ -149,6 +148,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Fri Nov 09 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
+- oracle/spec: Change "vos" to "ora" and update summaries and descriptions [Orabug: 29128747]
+
 * Mon Aug 27 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.2
 - Add "vos" to RPM release number (Aron Silverton) [Orabug 28550856]
 
