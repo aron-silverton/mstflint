@@ -1,6 +1,6 @@
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
-%{!?release: %define release 2.0.2}
+%{!?release: %define release 2.0.3}
 %{!?buildtype: %define buildtype "native"}
 %{!?noinband: %define noinband 0}
 %{!?nodc: %define nodc 0}
@@ -148,8 +148,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Fri Nov 09 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0
-- oracle/spec: Change "vos" to "ora" and update summaries and descriptions [Orabug: 29128747]
+* Fri Nov 09 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.3
+- spec: Change "vos" to "ora" and update summaries and descriptions [Orabug: 29128747]
 
 * Mon Aug 27 2018 Aron Silverton <aron.silverton@oracle.com> - 5:4.10.0-2.0.2
 - Add "vos" to RPM release number (Aron Silverton) [Orabug 28550856]
