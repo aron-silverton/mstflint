@@ -10,4 +10,4 @@ aclocal -I config -I m4
 libtoolize --force --copy
 autoheader
 automake --foreign --add-missing --copy
-autoconf
+autoreconf -i
