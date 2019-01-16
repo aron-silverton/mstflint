@@ -1,3 +1,10 @@
+%global uek2epoch 2
+%global uek4epoch 4
+%global uek5epoch 5
+
+%define RELEASE 3.0.0
+%{?el7:%define uektag uek4}
+
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
 %{!?name: %define name mstflint}
 %{!?version: %define version 4.10.0}
@@ -18,15 +25,22 @@
 
 Summary: Mellanox firmware burning application
 Name: %{name}
+Epoch: %{uek4epoch}
 Version: %{version}
-Release: %{release} 
+Release: %{RELEASE}%{?dist}%{?uektag}
 License: GPL/BSD
 Url: http://openfabrics.org
 Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
-BuildRequires: zlib-devel %{ibmadlib}
+
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libibmad-devel >= %{uek4epoch}:1.3.12-1.0.1
+BuildRequires: libibmad-devel < %{uek5epoch}:0
+BuildRequires: libtool
+BuildRequires: zlib-devel
 
 %description
 This package contains firmware update tool, vpd dump and register dump tools
@@ -36,6 +50,7 @@ for network adapters based on Mellanox Technologies chips.
 %setup -q
 
 %build
+./autogen.sh
 
 %if %{nodc}
     config_flags="$config_flags --disable-dc"
@@ -134,6 +149,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Tue Jan 15 2019 Aron Silverton <aron.silverton@oracle.com> - 4:4.10.0-3
+- Package for Oracle [Orabug: 29217219]
+
 * Sun Jul 01 2018 Dan Goldberg <dang@dev.mellanox.co.il>
    MFT 4.10.0 Updates
 
