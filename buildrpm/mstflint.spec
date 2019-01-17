@@ -2,7 +2,7 @@
 %global uek4epoch 4
 %global uek5epoch 5
 
-%define RELEASE 3.0.0
+%define RELEASE 3.0.1
 %{?el7:%define uektag uek4}
 
 %{!?ibmadlib: %define ibmadlib libibmad-devel}
@@ -149,7 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Tue Jan 15 2019 Aron Silverton <aron.silverton@oracle.com> - 4:4.10.0-3
+* Wed Jan 16 2019 Aron Silverton <aron.silverton@oracle.com> - 4:4.10.0-3.0.1
 - Package for Oracle [Orabug: 29217219]
 
 * Sun Jul 01 2018 Dan Goldberg <dang@dev.mellanox.co.il>
