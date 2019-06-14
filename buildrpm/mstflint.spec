@@ -123,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/mstfwreset
 %{_bindir}/mstcongestion
 %{_bindir}/mstprivhost
+%{_bindir}/mstfwtrace
 %if %{enablefwmgr}
  %{_bindir}/mstfwmanager
  %{_bindir}/mstarchive
