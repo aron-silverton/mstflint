@@ -28,6 +28,11 @@ Group: System Environment/Base
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 Source: %{name}-%{version}.tar.gz
 ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
+
+%if "%{nopenssl}" == "0"
+BuildRequires: openssl-devel
+%endif
+
 BuildRequires: zlib-devel %{ibmadlib}
 
 %description
@@ -156,6 +161,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jun 13 2019 Aron Silverton <aron.silverton@oracle.com> - 4.12.0
+- mstflint: Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 28863545]
+
 * Wed May 22 2019 Eran Jakoby <eranj@dev.mellanox.co.il>
    MFT 4.12.0 Updates. Added new tools: mstreg, mstfwtrace and mstlink.
 
