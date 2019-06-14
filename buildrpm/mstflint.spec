@@ -9,7 +9,7 @@
 %{!?nopenssl: %define nopenssl 0}
 %{!?enablexml2: %define enablexml2 0}
 %{!?enablefwmgr: %define enablefwmgr 0}
-%{!?enableadbgenerictools: %define enableadbgenerictools 0}
+%{!?enableadbgenerictools: %define enableadbgenerictools 1}
 %{!?CONF_DIR: %define CONF_DIR /etc/mstflint}
 
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
@@ -32,6 +32,13 @@ ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
 %if "%{nopenssl}" == "0"
 BuildRequires: openssl-devel
 %endif
+
+%if "%{enableadbgenerictools}" == "1"
+BuildRequires: boost-devel
+BuildRequires: expat-devel
+BuildRequires: xz-devel
+%endif
+
 BuildRequires: zlib-devel %{ibmadlib}
 
 %description
