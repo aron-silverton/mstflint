@@ -9,7 +9,7 @@
 %{!?nopenssl: %define nopenssl 0}
 %{!?enablexml2: %define enablexml2 0}
 %{!?enablefwmgr: %define enablefwmgr 0}
-%{!?enableadbgenerictools: %define enableadbgenerictools 0}
+%{!?enableadbgenerictools: %define enableadbgenerictools 1}
 %{!?CONF_DIR: %define CONF_DIR /etc/mstflint}
 
 %define mstflint_python_tools %{_libdir}/mstflint/python_tools
@@ -33,7 +33,18 @@ ExclusiveArch: i386 i486 i586 i686 x86_64 ia64 ppc ppc64 ppc64le arm64 aarch64
 BuildRequires: openssl-devel
 %endif
 
+%if "%{enableadbgenerictools}" == "1"
+BuildRequires: boost-devel
+BuildRequires: expat-devel
+BuildRequires: xz-devel
+%endif
+
 BuildRequires: zlib-devel %{ibmadlib}
+
+%if "%{enableadbgenerictools}" == "1"
+Requires: boost-filesystem
+Requires: boost-regex
+%endif
 
 %description
 This package contains firmware update tool, vpd dump and register dump tools
@@ -165,6 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Jun 13 2019 Aron Silverton <aron.silverton@oracle.com> - 4.12.0
 - mstflint: Add missing openssl build dependency (Aron Silverton) [Orabug: 28863545]
 - mstflint: Include mstfwtrace in the RPM package (Aron Silverton) [Orabug: 28863545]
+- mstflint: Build and package mstlink and mstreg (Aron Silverton) [Orabug: 28863545]
 
 * Wed May 22 2019 Eran Jakoby <eranj@dev.mellanox.co.il>
    MFT 4.12.0 Updates. Added new tools: mstreg, mstfwtrace and mstlink.
