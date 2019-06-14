@@ -124,6 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/mstfwreset
 %{_bindir}/mstcongestion
 %{_bindir}/mstprivhost
+%{_bindir}/mstfwtrace
 %if %{enablefwmgr}
  %{_bindir}/mstfwmanager
  %{_bindir}/mstarchive
@@ -163,6 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Jun 13 2019 Aron Silverton <aron.silverton@oracle.com> - 4.12.0
 - mstflint: Reconfigure for Oracle's build system (Aron Silverton) [Orabug: 28863545]
+- mstflint: Include mstfwtrace in the RPM package (Aron Silverton) [Orabug: 28863545]
 
 * Wed May 22 2019 Eran Jakoby <eranj@dev.mellanox.co.il>
    MFT 4.12.0 Updates. Added new tools: mstreg, mstfwtrace and mstlink.
