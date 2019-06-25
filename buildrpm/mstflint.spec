@@ -189,7 +189,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Thu Jun 13 2019 Aron Silverton <aron.silverton@oracle.com> - 5:4.12.0
+* Thu Jun 13 2019 Aron Silverton <aron.silverton@oracle.com> - 5:4.12.0-1.0.1
 - mstflint: Add missing openssl build dependency (Aron Silverton) [Orabug: 28863545]
 - mstflint: Include mstfwtrace in the RPM package (Aron Silverton) [Orabug: 28863545]
 - mstflint: Build and package mstlink and mstreg (Aron Silverton) [Orabug: 28863545]
